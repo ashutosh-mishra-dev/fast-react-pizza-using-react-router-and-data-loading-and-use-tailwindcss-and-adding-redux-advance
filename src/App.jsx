@@ -1,5 +1,5 @@
-// router version 6 : createBrowserRouter, RouterProvider
-// router version 7 : createBrowserRouter, RouterProvider
+// router version 6.4 : createBrowserRouter, RouterProvider
+// router version 7.9 : createBrowserRouter, RouterProvider
 
 import { createBrowserRouter, RouterProvider } from "react-router";
 import Home from "./ui/Home";
@@ -7,19 +7,19 @@ import Menu from "./features/menu/Menu";
 import Cart from "./features/cart/Cart";
 import CreateOrder from "./features/order/CreateOrder";
 import Order from "./features/order/Order";
+import AppLayout from "./ui/AppLayout";
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Home />,
+    element: <AppLayout />,
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "/menu", element: <Menu /> },
+      { path: "/cart", element: <Cart /> },
+      { path: "/order/new", element: <CreateOrder /> },
+      { path: "/order/:orderId", element: <Order /> },
+    ],
   },
-  {
-    path: "/menu",
-    element: <Menu />,
-  },
-  { path: "/cart", element: <Cart /> },
-  { path: "/order/new", element: <CreateOrder /> },
-  { path: "/order/:orderId", element: <Order /> },
 ]);
 
 function App() {
