@@ -37,7 +37,7 @@ import Home from "./ui/Home";
 import Menu, { Loader as menuLoader } from "./features/menu/Menu";
 import Cart from "./features/cart/Cart";
 import CreateOrder from "./features/order/CreateOrder";
-import Order from "./features/order/Order";
+import Order, { Loader as orderLoader } from "./features/order/Order";
 import AppLayout from "./ui/AppLayout";
 import Error from "./ui/Error";
 
@@ -48,13 +48,19 @@ const router = createBrowserRouter([
     children: [
       { index: true, Component: Home }, // / -> Home
       {
+        ErrorBoundary: Error,
         path: "menu",
         Component: Menu,
         loader: menuLoader, // loader for menu data
       },
       { path: "cart", Component: Cart },
       { path: "order/new", Component: CreateOrder },
-      { path: "order/:orderId", Component: Order },
+      {
+        ErrorBoundary: Error,
+        path: "order/:orderId",
+        Component: Order,
+        loader: orderLoader,
+      },
     ],
   },
 ]);
