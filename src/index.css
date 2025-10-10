@@ -2,11 +2,14 @@
 
 @layer components {
   .input {
-    @apply w-full rounded-full border border-stone-200 bg-white px-4 py-2 text-sm transition-all duration-300 placeholder:text-stone-400 focus:outline-none focus:ring focus:ring-yellow-300 md:my-3 md:px-6;
+    @apply w-full rounded-full border border-stone-200 bg-white px-4 py-2 text-sm transition-all duration-300 placeholder:text-stone-400 focus:ring focus:ring-yellow-300 focus:outline-none md:my-3 md:px-6;
   }
 
   .checkbox {
-    @apply h-6 w-6 border-none accent-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400 focus:ring-offset-2;
+    @apply h-6 w-6 border-none accent-yellow-400 focus:ring focus:ring-yellow-400 focus:ring-offset-2 focus:outline-none;
+  }
+  .header {
+    @apply flex items-center justify-between border-b border-stone-200 bg-yellow-400 px-4 py-3 uppercase sm:px-6;
   }
 }
 
