@@ -53,7 +53,7 @@ function Order() {
         </p>
       </div>
 
-      <ul className="">
+      <ul className="px-6">
         {cart.map((item) => (
           <OrderItem item={item} key={item.id} />
         ))}

@@ -76,7 +76,7 @@ function CreateOrder() {
 
         <div className="mb-12 flex items-center gap-5">
           <input
-            className="checkbox"
+            className="checkbox gap-2"
             type="checkbox"
             name="priority"
             id="priority"
