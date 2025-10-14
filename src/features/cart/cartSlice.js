@@ -1,15 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  cart: [
-    {
-      pizzaId: 1,
-      name: "abc",
-      unitPrice: 30,
-      quantity: 12,
-      totalPrice: 240,
-    },
-  ],
+  cart: [],
+  // cart: [
+  //   {
+  //     pizzaId: 1,
+  //     name: "abc",
+  //     unitPrice: 30,
+  //     quantity: 1,
+  //     totalPrice: 240,
+  //   },
+  // ],
 };
 
 const cartSlice = createSlice({
@@ -53,3 +54,10 @@ export const {
 } = cartSlice.actions;
 
 export default cartSlice.reducer;
+
+// yha hamene ye method banaya h some calculation perform ke liye jo abhi tak cart me useSelector() me use ho rha h
+export const getTotalCartQuantity = (state) =>
+  state.cart.cart.reduce((sum, item) => sum + item.quantity, 0);
+
+export const getTotalCartPrice = (state) =>
+  state.cart.cart.reduce((sum, item) => sum + item.totalPrice, 0);
