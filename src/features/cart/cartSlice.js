@@ -56,6 +56,9 @@ export const {
 export default cartSlice.reducer;
 
 // yha hamene ye method banaya h some calculation perform ke liye jo abhi tak cart me useSelector() me use ho rha h
+
+export const getCart = (state) => state.cart.cart;
+
 export const getTotalCartQuantity = (state) =>
   state.cart.cart.reduce((sum, item) => sum + item.quantity, 0);
 

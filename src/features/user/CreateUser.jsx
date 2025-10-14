@@ -12,6 +12,7 @@ function CreateUser() {
   function handleSubmit(e) {
     e.preventDefault();
     if (!username) return;
+    //dispatch({ type: "user/updateName", payload: username });
     dispatch(updateName(username));
     navigate("/menu");
   }
