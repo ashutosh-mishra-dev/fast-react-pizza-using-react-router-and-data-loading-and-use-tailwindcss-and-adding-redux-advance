@@ -1,5 +1,6 @@
 // Test ID: IIDSAT
 // other ID:CQE92U, N3BBRE, 9EKFKK, 1AZSJY, DSNWVV
+// final testId WEBJ8G
 
 import { useLoaderData } from "react-router";
 import { getOrder } from "../../services/apiRestaurant";
@@ -55,7 +56,7 @@ function Order() {
 
       <ul className="px-6">
         {cart.map((item) => (
-          <OrderItem item={item} key={item.id} />
+          <OrderItem item={item} key={item.pizzaId} />
         ))}
       </ul>
 
