@@ -38,6 +38,9 @@ const cartSlice = createSlice({
 
       item.quantity--; // react me ham es prkar se data pass nhi karte
       item.totalPrice = item.quantity * item.unitPrice;
+
+      // yha kuch new kiya agar manlo same cartSlice ka method use karna h to
+      if (item.quantity === 0) cartSlice.caseReducers.deleteItem(state, action);
     },
     clearCart(state) {
       state.cart = [];
