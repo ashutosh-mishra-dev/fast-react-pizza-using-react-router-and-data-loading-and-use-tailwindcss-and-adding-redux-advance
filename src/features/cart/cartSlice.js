@@ -7,10 +7,10 @@ const initialState = {
   //     pizzaId: 1,
   //     name: "abc",
   //     unitPrice: 30,
-  //     quantity: 1,
+  //     quantity: 550,
   //     totalPrice: 240,
   //   },
-  // ],
+  //],
 };
 
 const cartSlice = createSlice({
@@ -64,3 +64,34 @@ export const getTotalCartQuantity = (state) =>
 
 export const getTotalCartPrice = (state) =>
   state.cart.cart.reduce((sum, item) => sum + item.totalPrice, 0);
+
+export const getCurrentQuantityById = (id) => (state) =>
+  state.cart.cart.find((item) => item.pizzaId === id)?.quantity ?? 0;
+
+//------------------------------ debuging ke sath --------------------------------------
+// export const getCurrentQuantityById = (id) => (state) => {
+//   console.group(`🎯 Selector: getCurrentQuantityById(${id})`);
+
+//   console.log("📋 Full Redux State:", state);
+//   console.log("🛒 Cart State:", state.cart);
+//   console.log("📦 Cart Items:", state.cart.cart);
+//   console.log("🔍 Searching for pizzaId:", id);
+
+//   const foundItem = state.cart.cart.find((item) => {
+//     console.log(
+//       `   Checking item: ${item.pizzaId} === ${id}?`,
+//       item.pizzaId === id,
+//     );
+//     return item.pizzaId === id;
+//   });
+
+//   console.log("✅ Found item:", foundItem);
+
+//   const quantity = foundItem?.quantity ?? 0;
+//   console.log("📊 Final quantity:", quantity);
+
+//   console.groupEnd();
+
+//   return quantity;
+// };
+//---------------------------------------------------------------------------------------------------
